@@ -7,11 +7,8 @@ class Song < ActiveRecord::Base
     self.name.downcase.gsub(" ","-")
   end
 
-  def self.find_by_slug(slug)
-    name = []
-    slug.split("-").each {|w| name << w.capitalize}
-    find_by(name: name.join(" "))
-    binding.pry
+  def self.find_by_slug(item)
+    all.detect { |i| i.name.downcase == item.slug}
   end
 
 end
