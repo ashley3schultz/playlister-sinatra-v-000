@@ -37,11 +37,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs/edit/:slug' do
-    
+
     redirect 'songs/"#{@song.id}"'
   end
 
-  
+
 
   get '/songs/:slug' do
     @slug = Song.find_by_slug(params[:slug])
