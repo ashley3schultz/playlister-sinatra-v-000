@@ -4,11 +4,15 @@
   <label>Name:</label>
   <input type="text" name="Name">
 
-  <input type="checkbox" name="New Age Garbage">
-  <input type="checkbox" name="Hippity Hop">
+  <% Genre.all.each do |g| %>
 
-  <label>Genre Name:</label>
-  <input type="text" name="Genre Name">
+    <input type="checkbox" name="New Age Garbage">
+    <input type="checkbox" name="Hippity Hop">
+
+  <% end %>
+
+  #<label>Genre Name:</label>
+  #<input type="text" name="Genre Name">
 
   <label>Artist Name:</label>
   <input type="text" name="Artist Name">
