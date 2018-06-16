@@ -29,6 +29,7 @@ class ApplicationController < Sinatra::Base
 
   post '/songs/new' do
     @song = Song.create(name: params["Name"])
+    binding.pry
     @artist = Artist.find_by(name: params["Artist Name"]) || Artist.create(name: params["Artist Name"])
     @genre = Genre.find_by(params[:genre]) || Genre.create(name: params["Genre Name"])
     @artist.songs << @song
