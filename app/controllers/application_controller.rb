@@ -30,9 +30,9 @@ class ApplicationController < Sinatra::Base
   post '/songs/new' do
     "hello"
 binding.pry
-    @artist = Artist.find_by(params[:artist]) || Artist.create(params[:song])
-    @genre = Genre.find_by(params[:genre]) || Genre.create(params[:genre])
-    @song = Song.find_by(params[:song]) || Song.create(params[:song])
+    #@artist = Artist.find_by(params[:artist]) || Artist.create(params[:song])
+    #@genre = Genre.find_by(params[:genre]) || Genre.create(params[:genre])
+    #@song = Song.find_by(params[:song]) || Song.create(params[:song])
 
     redirect 'songs/"#{@song.id}"'
   end
