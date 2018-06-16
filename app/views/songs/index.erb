@@ -3,5 +3,6 @@
   <ol>
     <% @list.each do |i| %>
       <h3><li><a href="/songs/<%=i.slug%>"><%=i.name%></a></li></h3>
+      <%binding.pry%>
     <% end %>
   </ol>
