@@ -29,12 +29,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/genres/:slug' do
-
+    @slug = Genre.find_by_slug(params[:slug])
     erb :'genres/show'
   end
 
   get '/artists/:slug' do
-
+    @slug = Artist.find_by_slug(params[:slug])
     erb :'artists/show'
   end
 
