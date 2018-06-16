@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
     #@genre = Genre.find_by(params[:genre])
     @genre = Genre.find_by(params["Genre Name"]) || Genre.create(params["Genre Name"])
     @song = Song.find_by(params["Name"]) || Song.create(params["Name"])
-    redirect "songs/'#{@song.slug}'"
+    redirect "/songs/'#{@song.slug}'"
   end
 
   get '/songs/:slug' do
