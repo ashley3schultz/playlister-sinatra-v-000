@@ -33,8 +33,6 @@ class ApplicationController < Sinatra::Base
     @song = Song.create(name: params["Name"])
     @song.genres << @genre
     @artist.songs << @song
-    @msg = "Successfully created song."
-    binding.pry
     redirect "/songs/#{@song.slug}"
   end
 
