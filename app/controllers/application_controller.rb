@@ -33,11 +33,9 @@ class ApplicationController < Sinatra::Base
 
     @genre = Genre.find_by(params[:genre]) || Genre.create(name: params["Genre Name"])
     @song = Song.create(name: params["Name"])
-    binding.pry
+    @song.genres << @genre
     @artist.songs << @song
-    @song.genres
-    #@genre.songs << @song
-    #@song.save
+    binding.pry
     redirect "/songs/#{@song.slug}"
   end
 
