@@ -11,7 +11,7 @@ class Song < ActiveRecord::Base
     #name = []
     #slug.split("-").each {|w| name << w.capitalize}
     #find_by(name: name.join(" "))
-    find_by(name: name.join(" "))
+    find_by(slug: slug)
   end
 
 end
