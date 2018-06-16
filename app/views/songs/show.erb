@@ -1,3 +1,7 @@
 <h1><%= @slug.name %></h1>
 <h2><%= @slug.artist.name %></h2>
-<h2><%= @slug.genre.name %></h2>
+<ul>
+  <% @slug.genres.each do |g| %>
+  <li><h3><%= g.name %></h3></li>
+  <% end %>
+</ul>
