@@ -42,10 +42,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs/edit' do
+    binding.pry
     @artist = Artist.find_by(name: params["Artist Name"]) || Artist.create(name: params["Artist Name"])
-    @genre = Genre.find_by(params[:genre]) || Genre.create(name: params["Genre Name"])
+    @genre1 = Genre.find_by(params[:genre])
+    @genre2 = Genre.create(name: params["Genre Name"])
     @song = Song.update(name: params["Name"], artist: "#{@artist}")
-    @song.genres << @genre if !@song.genres.include?(@genre)
+    @song.genres << @genre if !@song.genres.include?(@genre) && @genre != nil
     @artist.songs << @song if !@artist.songs.include?(@song)
     redirect "/songs/#{@song.slug}"
   end
