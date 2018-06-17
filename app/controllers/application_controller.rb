@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs/:slug/edit' do
-    binding.pry
+    #binding.pry
     @artist = Artist.find_by(name: params["Artist Name"]) || Artist.create(name: params["Artist Name"])
     @genre = Genre.find_by(params[:genre]) || Genre.create(name: params["Genre Name"])
     @song = Song.find_by_slug(params[:slug])
