@@ -50,6 +50,7 @@ class ApplicationController < Sinatra::Base
     #@song.genre_ids = @genre.id
     #@song.save
     @song.update(name: "#{params["Name"]}", artist_id: "#{@artist.id}", genre_ids: "#{@genre.id}")
+    binding.pry
     #@song.genres = @genre
     #@artist.songs << @song if !@artist.songs.include?(@song)
     redirect "/songs/#{@song.slug}"
