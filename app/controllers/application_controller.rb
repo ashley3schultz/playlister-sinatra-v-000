@@ -48,7 +48,6 @@ class ApplicationController < Sinatra::Base
     @song.update(name: params["Name"], artist: "#{@artist}", genres: @genre)
     #@song.genres = @genre
     #@artist.songs << @song if !@artist.songs.include?(@song)
-    #
     redirect "/songs/#{@song.slug}"
   end
 
