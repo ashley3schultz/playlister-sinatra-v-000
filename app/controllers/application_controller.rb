@@ -42,11 +42,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/songs/:slug/edit' do
-    #binding.pry
     @artist = Artist.find_by(name: params["Artist Name"]) || Artist.create(name: params["Artist Name"])
     @genre = Genre.find_by(params[:genre]) || Genre.create(name: params["Genre Name"])
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
     @song.update(name: params["Name"], artist: "#{@artist}", genres: @genre)
     #@song.genres = @genre
     #@artist.songs << @song if !@artist.songs.include?(@song)
