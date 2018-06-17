@@ -47,7 +47,7 @@ class ApplicationController < Sinatra::Base
     @song = Song.find_by_slug(params[:slug])
     @song.name = params["Name"]
     @song.artist = @artist
-    @song.genres = @genre
+    @song.genre_ids = @genre.id
     @song.save
     #update(name: params["Name"], artist: "#{@artist}", genres: @genre)
     #@song.genres = @genre
