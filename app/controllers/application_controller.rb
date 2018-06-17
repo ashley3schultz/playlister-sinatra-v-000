@@ -45,14 +45,7 @@ class ApplicationController < Sinatra::Base
     @artist = Artist.find_by(name: params["Artist Name"]) || Artist.create(name: params["Artist Name"])
     @genre = Genre.find_by(params[:genre]) || Genre.create(name: params["Genre Name"])
     @song = Song.find_by_slug(params[:slug])
-    #@song.name = params["Name"]
-    #@song.artist_id = @artist.id
-    #@song.genre_ids = @genre.id
-    #@song.save
     @song.update(name: "#{params["Name"]}", artist_id: "#{@artist.id}", genre_ids: "#{@genre.id}")
-    binding.pry
-    #@song.genres = @genre
-    #@artist.songs << @song if !@artist.songs.include?(@song)
     redirect "/songs/#{@song.slug}"
   end
 
